@@ -1,0 +1,42 @@
+.footerwrapper{
+    background: #000;
+}
+.container{
+max-width:1140px;
+}
+.ptop{
+padding-top: 65px;;
+}
+.font18{
+    font-size:18px;
+}
+.font14{
+    font-size:14px;
+}
+.font22{
+    font-size:22px;
+}
+.fontmedium{
+    font-weight:500;
+}
+.divider{
+    max-width:1400px;
+    border:1px solid rgba(255,255,255,0.21);
+    margin-top: 15px;
+   margin-bottom:25px;
+}
+.footercontact{
+background: #ED2726;
+position:relative;
+}
+.trangle{
+width: 60px;
+height: 30px;
+border-top: solid 30px #ED2726;
+border-left: solid 30px transparent;
+border-right: solid 30px transparent;
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+bottom: -10px;
+}
