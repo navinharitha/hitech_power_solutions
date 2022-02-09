@@ -1,0 +1,39 @@
+.productDetail_Wrapper {
+  padding: 5rem 0rem;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.productImage_Wrapper {
+  width: 50%;
+  height: 600px;
+}
+.content_Wrapper {
+  margin-left: 5rem;
+  margin-top: 3rem;
+}
+.productImage {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+.productTitle {
+  font-size: 2rem;
+  width: 30rem;
+  font-weight: 500;
+}
+
+.breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+.breadcrumb_Text {
+  color: #fc008f;
+  text-decoration: underline;
+}
+
+.productDescription {
+  white-space: pre-line;
+}
