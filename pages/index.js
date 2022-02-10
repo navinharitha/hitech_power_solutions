@@ -10,7 +10,7 @@ export default function Home({ featuredProducts }) {
   return (
     <Layout>
       <Sliders />
-      <AboutSection />
+      <AboutSection readmorebutton />
       <div className="productContainer">
         <h3 className="text-4xl font-bold">Our Latest Products</h3>
         <h6 className="text-lg mt-1 mb-2 font-semibold">

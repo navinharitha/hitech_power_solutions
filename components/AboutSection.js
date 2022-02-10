@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/AboutSection.module.css";
 
-function AboutSection() {
+function AboutSection({readmorebutton}) {
   return (
     <div className="appContainer py-20 flex justify-between">
       <div className={`${styles.AboutSection__ImageWrapper}`}>
@@ -27,11 +27,13 @@ function AboutSection() {
           be more than happy to assist you with any enquirers that you have
           contact us today to order your items.
         </p>
-        <Link href="/about">
+        {readmorebutton && (
+          <Link href="/about">
           <a className={styles.AboutSection__ContentWrapper__Button}>
             Learn More About
           </a>
         </Link>
+        )}
       </div>
     </div>
   );
