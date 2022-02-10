@@ -1,0 +1,17 @@
+.paginationContainer {
+  width: 8%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem auto;
+}
+.paginationLinkItem {
+  background-color: #000;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  display: inline-block;
+}
+.paginationActiveLinkItem {
+  background-color: #ed2726;
+}

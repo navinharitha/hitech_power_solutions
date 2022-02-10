@@ -1,5 +1,5 @@
 .productDetail_Wrapper {
-  padding: 5rem 0rem;
+  padding: 2.5rem 0rem;
 }
 .wrapper {
   display: flex;
@@ -30,10 +30,50 @@
   font-size: 0.95rem;
 }
 .breadcrumb_Text {
-  color: #fc008f;
+  color: #ed2726;
   text-decoration: underline;
 }
 
 .productDescription {
   white-space: pre-line;
+  width: 30rem;
+}
+.productLongDescription {
+}
+.productPrice {
+  font-size: 2.4rem;
+  margin-top: 0.5rem;
+}
+
+.addToCart {
+  border-radius: 7px;
+  padding: 1rem 8rem;
+  margin-top: 2rem;
+  transition: background 180ms ease 0s;
+  background-color: #ed2726;
+  font-size: 1.3rem;
+  font-weight: 500;
+  height: auto;
+  position: relative;
+  display: block;
+  border: none;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.productQuantityLabel {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.productQuantity {
+  width: 10%;
+  font-size: 1.3rem;
+  margin-left: 0.8rem;
+  text-align: center;
+  border: 1px solid #000;
+}
+.typeName {
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
