@@ -47,22 +47,22 @@ function Header() {
           <ul>
             <li>
               <Link href="/">
-                <a className="inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary">
+                <a className="inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind">
                   Home
                 </a>
               </Link>
               <Link href="/products">
-                <a className="inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary">
+                <a className="inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind">
                   Products
                 </a>
               </Link>
               <Link href="/about">
-                <a className="inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary">
+                <a className="inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind">
                   About Us
                 </a>
               </Link>
               <Link href="/contact">
-                <a className="inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary">
+                <a className="inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind">
                   Contact
                 </a>
               </Link>
