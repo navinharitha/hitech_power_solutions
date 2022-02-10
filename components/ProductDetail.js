@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "../styles/ProductDetail.module.css";
 import Link from "next/link";
+import { formatter } from "../utils/helpers";
 import Layout from "../components/Layout";
 import ImageGallery from "react-image-gallery";
-// import ProductVariant from "./ProductVariant";
+import ProductVariant from "./ProductVariant";
 
 export default function ProductDetail({ product }) {
   const images = [];
@@ -11,13 +12,11 @@ export default function ProductDetail({ product }) {
     images.push({
       original: image.node.originalSrc,
       thumbnail: image.node.originalSrc,
-      originalHeight: "400px",
-      thumbnailHeight: "80px",
     });
   });
   return (
     <Layout>
-      <div className="appContainer">
+      <div className="appContainer flex flex-col">
         <div className={styles.productDetail_Wrapper}>
           <div className={styles.wrapper}>
             <div className={styles.productImage_Wrapper}>
@@ -38,14 +37,33 @@ export default function ProductDetail({ product }) {
                 />
               </div>
             </div>
-            {/* <div className={styles.content_Wrapper}>
-            <h2 className={styles.productTitle}>{product.title}</h2>
-            <ProductVariant product={product} />
-          </div> */}
+            <div className={styles.content_Wrapper}>
+              <h2 className={styles.productTitle}>{product.title}</h2>
+              <p className={styles.productDescription}>{product.description}</p>
+              <h3 className={styles.productPrice}>
+                {formatter.format(product.priceRange.minVariantPrice.amount)}
+              </h3>
+              <label className={styles.productQuantityLabel}>
+                Quantity
+                <input
+                  type="number"
+                  // value={1}
+                  // onChange={handleQuantityChange}
+                  className={styles.productQuantity}
+                  min={1}
+                />
+              </label>
+              <button
+                className={styles.addToCart}
+                // onClick={() => addToCart(selectedVariant)}
+              >
+                Add To Cart
+              </button>
+            </div>
           </div>
-          <div className={styles.productDescription_Wrapper}>
-            <p className={styles.productDescription}>{product.description}</p>
-          </div>
+        </div>
+        <div className="mt-40 mb-40">
+          <p className={styles.productLongDescription}>{product.description}</p>
         </div>
       </div>
     </Layout>
