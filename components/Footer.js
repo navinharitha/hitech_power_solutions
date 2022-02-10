@@ -63,8 +63,8 @@ function Footer() {
         </div>
     <div className={`mx-auto text-white pb-5 ${styles.container}`}>
         <div className={`flex flex-wrap items-center overflow-hidden`}>
-            <div className={`px-3 w-full overflow-hidden lg:my-1 lg:px-3 lg:w-1/2 xl:my-1 xl:px-3 xl:w-1/2`}>Hitechpower Solutions design by PMGS Digital</div>
-            <div className={'px-3 w-full overflow-hidden lg:my-1 lg:px-3 lg:w-1/2 xl:my-1 xl:px-3 xl:w-1/2 md:text-right'}>© 2021 All rights reserved</div>
+            <div className={`px-3 w-full overflow-hidden lg:my-1 lg:px-3 lg:w-1/2 xl:my-1 xl:px-3 xl:w-1/2 font-Hind  ${styles.font14} ${styles.copyrightcolor}`}>Hitechpower Solutions design by PMGS Digital</div>
+            <div className={`px-3 w-full overflow-hidden lg:my-1 lg:px-3 lg:w-1/2 xl:my-1 xl:px-3 xl:w-1/2 md:text-right font-Hind  ${styles.font14} ${styles.copyrightcolor}`}>© 2021 All rights reserved</div>
         </div>
     </div>
 </div>
