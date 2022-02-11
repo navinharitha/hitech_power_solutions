@@ -19,7 +19,7 @@ export default function Home({ featuredProducts }) {
         </h6>
         <div className="divider mb-10"></div>
       </div>
-      <div className="mb-60">
+      <div className="mb-20">
         <PaginatedItems products={featuredProducts} itemsPerPage={4} />
       </div>
     </Layout>

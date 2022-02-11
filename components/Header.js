@@ -29,14 +29,14 @@ function Header() {
           <div className="flex items-center">
             <AiFillPhone size={32} color="red" />
             <div className="ml-3">
-              <h3 className="text-pointnine lg:text-xl font-medium">Phone Number</h3>
+              <h3 className="text-pointnine lg:text-xl font-DMSans font-medium">Phone Number</h3>
               <p className="text-pointeight lg:text-lg">+61 1111 98393</p>
             </div>
           </div>
           <div className="flex items-center">
             <AiOutlineMail size={32} color="red" />
             <div className="ml-3">
-              <h3 className="text-pointnine lg:text-xl font-medium">Send Your Email</h3>
+              <h3 className="text-pointnine lg:text-xl font-DMSans font-medium">Send Your Email</h3>
               <p className="text-pointeight lg:text-lg">info@hitechpowersolutions.com.au</p>
             </div>
           </div>

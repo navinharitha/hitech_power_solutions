@@ -5,4 +5,14 @@
   grid-auto-rows: 30rem;
   grid-gap: 1.5rem;
   width: 100%;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+@media(max-width:768px){
+  .productList { 
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
+  }
 }
