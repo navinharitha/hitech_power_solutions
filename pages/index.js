@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../components/Layout";
 import Sliders from "../components/Sliders";
 import AboutSection from "../components/AboutSection";
 import ProductList from "../components/ProductList";
@@ -9,7 +8,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home({ featuredProducts }) {
   return (
-    <Layout>
+    <React.Fragment>
       <Sliders />
       <AboutSection readmorebutton />
       <div className="productContainer">
@@ -22,7 +21,7 @@ export default function Home({ featuredProducts }) {
       <div className="mb-60">
         <PaginatedItems products={featuredProducts} itemsPerPage={4} />
       </div>
-    </Layout>
+    </React.Fragment>
   );
 }
 

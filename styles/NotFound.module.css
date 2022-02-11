@@ -1,0 +1,10 @@
+.notFound {
+  background-color: #ffb8e0;
+  padding: 2rem;
+  text-align: center;
+}
+.notFound_Title {
+  font-size: 3rem;
+  color: #fc008f;
+  font-weight: 800;
+}
