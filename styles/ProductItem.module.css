@@ -28,6 +28,7 @@
   font-size: 1.1rem;
   font-weight: 500;
   margin-top: 30px;
+  min-height: 52px;
 }
 .productItem_Price {
   font-size: 1.5rem;
@@ -35,7 +36,7 @@
 }
 .productItem_Button {
   background-color: #000;
-  border-radius: 7px;
+  border-radius:0px;
   margin: 1rem 0rem;
   padding: 0.5rem 1.5rem;
   transition: background 180ms ease 0s;
@@ -44,4 +45,10 @@
   text-align: center;
   color: #fff;
   font-size: 1.05rem;
+}
+.productItem_Wrapper:hover .productItem_Content {
+ background:#000;
+}
+.productItem_Wrapper:hover .productItem_Button{
+background: #ed2726;
 }

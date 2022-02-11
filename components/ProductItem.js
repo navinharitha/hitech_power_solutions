@@ -22,12 +22,12 @@ function ProductItem({ product }) {
         </a>
       </Link>
       <div className={styles.productItem_Content}>
-        <h3 className={styles.productItem_Title}>{product.node.title}</h3>
+        <h3 className={`font-DMSans ${styles.productItem_Title}`}>{product.node.title}</h3>
         <h2 className={styles.productItem_Price}>
           {formatter.format(product.node.priceRange.minVariantPrice.amount)}
         </h2>
         <Link href={`/products/${product.node.handle}`}>
-          <a className={styles.productItem_Button}>View Product</a>
+          <a className={`font-Hind font-bold ${styles.productItem_Button}`}>View Product</a>
         </Link>
       </div>
     </div>
