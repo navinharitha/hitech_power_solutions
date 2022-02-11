@@ -3,9 +3,19 @@ import "swiper/scss";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
+import Layout from "../components/Layout";
+import ShopProvider from "../context/shopContext";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  const router = useRouter();
+  return (
+    <ShopProvider>
+      <Layout>
+        <Component {...pageProps} key={router.asPath} />
+      </Layout>
+    </ShopProvider>
+  );
 }
 
 export default MyApp;

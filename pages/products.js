@@ -1,17 +1,16 @@
 import React from "react";
-import Layout from "../components/Layout";
 import PageBanner from "../components/PageBanner";
 import { getAllProducts } from "../lib/shopify";
 import PaginatedItems from "../components/PaginatedItems";
 
 function Products({ products }) {
   return (
-    <Layout>
+    <React.Fragment>
       <PageBanner title="Shop" />
       <div className="py-20">
         <PaginatedItems products={products} itemsPerPage={4} />
       </div>
-    </Layout>
+    </React.Fragment>
   );
 }
 

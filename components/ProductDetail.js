@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styles from "../styles/ProductDetail.module.css";
 import Link from "next/link";
 import { formatter } from "../utils/helpers";
-import Layout from "../components/Layout";
 import ImageGallery from "react-image-gallery";
-import ProductVariant from "./ProductVariant";
+import { CartContext } from "../context/shopContext";
 
 export default function ProductDetail({ product }) {
+  const { addToCart } = useContext(CartContext);
   const images = [];
   product.images.edges.forEach((image) => {
     images.push({
@@ -14,8 +14,54 @@ export default function ProductDetail({ product }) {
       thumbnail: image.node.originalSrc,
     });
   });
+  const [defaultProductCount, setDefaultProductCount] = useState(0);
+  const allVariantOptions = product.variants.edges?.map((variant) => {
+    const allOptions = {};
+    variant.node.selectedOptions.map((item) => {
+      allOptions["type"] = item.value;
+    });
+    return {
+      id: variant.node.id,
+      title: product.title,
+      handle: product.handle,
+      image: variant.node.image?.originalSrc,
+      options: allOptions,
+      variantTitle: variant.node.title,
+      variantPrice: variant.node.priceV2.amount,
+      variantQuantity: 1,
+    };
+  });
+  const defaultValues = {};
+  product.options.map((item) => {
+    defaultValues[item.name] = item.values[0];
+  });
+
+  const [selectedVariant, setSelectedVariant] = React.useState(
+    allVariantOptions[0]
+  );
+  const [selectedOptions, setSelectedOptions] = React.useState(defaultValues);
+  function handleSelect(event) {
+    setSelectedVariant(
+      allVariantOptions.find((variant) => variant.id === event.target.value)
+    );
+  }
+  function handleQuantityChange(event) {
+    if (event.target.value === 0) {
+      setSelectedVariant((prevState) => ({
+        ...prevState,
+        variantQuantity: 0,
+      }));
+    }
+    setSelectedVariant((prevState) => ({
+      ...prevState,
+      variantQuantity:
+        prevState.variantQuantity < event.target.value
+          ? prevState.variantQuantity + 1
+          : prevState.variantQuantity - 1,
+    }));
+  }
   return (
-    <Layout>
+    <React.Fragment>
       <div className="appContainer flex flex-col">
         <div className={styles.productDetail_Wrapper}>
           <div className={styles.wrapper}>
@@ -47,15 +93,15 @@ export default function ProductDetail({ product }) {
                 Quantity
                 <input
                   type="number"
-                  // value={1}
-                  // onChange={handleQuantityChange}
+                  value={selectedVariant.variantQuantity}
+                  onChange={handleQuantityChange}
                   className={styles.productQuantity}
                   min={1}
                 />
               </label>
               <button
                 className={styles.addToCart}
-                // onClick={() => addToCart(selectedVariant)}
+                onClick={() => addToCart(selectedVariant)}
               >
                 Add To Cart
               </button>
@@ -66,6 +112,6 @@ export default function ProductDetail({ product }) {
           <p className={styles.productLongDescription}>{product.description}</p>
         </div>
       </div>
-    </Layout>
+    </React.Fragment>
   );
 }
