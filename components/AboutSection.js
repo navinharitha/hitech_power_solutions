@@ -5,7 +5,7 @@ import styles from "../styles/AboutSection.module.css";
 
 function AboutSection({readmorebutton}) {
   return (
-    <div className="appContainer py-20 flex justify-between">
+    <div className="appContainer py-20 block md:flex justify-between">
       <div className={`${styles.AboutSection__ImageWrapper}`}>
         <Image
           src="/about-high.png"
@@ -20,6 +20,7 @@ function AboutSection({readmorebutton}) {
           Welcome to Hitech Power Solutions
         </h3>
         <h6 className="text-lg font-bold mb-2">HITECHPOWER SOLUTIONS</h6>
+        <div class="divider mb-7"></div>
         <p className="text-lg mb-8 mt-6">
           We are supplying all types of electrical solutions which required to
           caravan industry starting from solar regulator & panels, LED down

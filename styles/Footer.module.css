@@ -46,3 +46,13 @@ bottom: -10px;
     color:#FFFFFF9E;
     font-weight:300;
 }
+
+.footerlogo__Wrapper {
+    position: relative;
+    width:304px;
+    height: 113px;
+  }
+  .footerlogo__Image {
+    width: 100%;
+    height: 100%;
+  }

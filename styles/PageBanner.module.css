@@ -1,5 +1,10 @@
 .pageBanner {
   background: #ed2726;
-  padding: 5rem;
+  padding: 4rem;
   text-align: center;
+}
+@media(max-width:768px){
+  .pageBanner {
+  padding: 2.5rem 1rem;
+  }
 }
