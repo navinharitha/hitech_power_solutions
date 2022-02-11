@@ -20,6 +20,9 @@ module.exports = {
         'blackheading':'2.6rem',
         'smallheading':'1.3rem',
         'bodyfont':'1.125rem',
+        'pointnine':'0.9rem',
+        'pointeight':'0.8rem',
+
       },
       fontWeight: {
         light: 300,
