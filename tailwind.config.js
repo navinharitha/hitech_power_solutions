@@ -17,11 +17,14 @@ module.exports = {
       fontSize: {
         'sizeone': '1rem',
         'lgheading': '1.4rem',
+        'pointtwentyfour': '1.5rem',
         'blackheading':'2.6rem',
         'smallheading':'1.3rem',
         'bodyfont':'1.125rem',
         'pointnine':'0.9rem',
         'pointeight':'0.8rem',
+        'pointnineteen':'1.188rem',
+        'pointeighteen':'1.125rem',
 
       },
       fontWeight: {
