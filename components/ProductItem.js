@@ -7,7 +7,7 @@ import { formatter } from "../utils/helpers";
 function ProductItem({ product }) {
   return (
     <div className={styles.productItem_Wrapper}>
-      <Link href={`/products/${product.node.title}`}>
+      <Link href={`/products/${product.node.handle}`}>
         <a>
           <div className={styles.productItem_Image_Wrapper}>
             <div className={styles.productItem_Image}>
