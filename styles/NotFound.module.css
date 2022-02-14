@@ -1,10 +1,18 @@
 .notFound {
-  background-color: #ffb8e0;
-  padding: 2rem;
+  background-color: #fff;
   text-align: center;
 }
 .notFound_Title {
   font-size: 3rem;
-  color: #fc008f;
+  color: #000;
   font-weight: 800;
+}
+.notFoundbtn{
+  background-color: #ED2726;
+  padding: 12px 24px;
+  display: inline-block;
+  color:#fff;
+}
+.notFoundbtn:hover{
+  background-color: #000;
 }
