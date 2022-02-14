@@ -22,7 +22,7 @@ function About() {
         >
           <div className={`flex flex-wrap items-center overflow-hidden`}>
             <div
-              className={`px-3 w-full overflow-hidden lg:my-1 lg:px-3 lg:w-4/12 xl:my-1 xl:px-3 xl:w-4/12 text-center`}
+              className={`px-3 w-full overflow-hidden  lg:my-1 lg:px-3 md:w-4/12 xl:my-1 xl:px-3 xl:w-4/12 text-center`}
             >
               <div className={styles.centeralign}>
                 <FaShippingFast size={50} />
@@ -36,7 +36,7 @@ function About() {
               </p>
             </div>
             <div
-              className={`px-3 w-full overflow-hidden lg:my-1 lg:px-3 lg:w-4/12 xl:my-1 xl:px-3 xl:w-4/12 text-center`}
+              className={`px-3 w-full overflow-hidden mt-2 mb-2 md:mt-0 md:mb-0 lg:my-1 lg:px-3 md:w-4/12 xl:my-1 xl:px-3 xl:w-4/12 text-center`}
             >
               <div className={styles.centeralign}>
                 <FaDollarSign size={50} />
@@ -51,7 +51,7 @@ function About() {
             </div>
 
             <div
-              className={`px-3 w-full overflow-hidden lg:my-1 lg:px-3 lg:w-4/12 xl:my-1 xl:px-3 xl:w-4/12 text-center`}
+              className={`px-3 w-full overflow-hidden lg:my-1 lg:px-3 md:w-4/12 xl:my-1 xl:px-3 xl:w-4/12 text-center`}
             >
               <div className={styles.centeralign}>
                 <FaRegStar size={50} />
