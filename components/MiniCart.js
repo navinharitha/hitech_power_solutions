@@ -1,6 +1,7 @@
 import { Fragment, useState, useContext, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CartContext } from "../context/shopContext";
 import Image from "next/image";
 import { formatter } from "../utils/helpers";
@@ -50,9 +51,7 @@ export default function MiniCart() {
                 <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                   <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                     <div className="flex items-start justify-between">
-                      <Dialog.Title className="text-lg font-medium text-gray-900">
-                        Shopping cart
-                      </Dialog.Title>
+                      <Dialog.Title className="text-lg font-medium text-gray-900"></Dialog.Title>
                       <div className="ml-3 flex h-7 items-center">
                         <button
                           type="button"
@@ -72,51 +71,70 @@ export default function MiniCart() {
                           role="list"
                           className="-my-6 divide-y divide-gray-200"
                         >
-                          {cart.map((product) => (
-                            <li key={product.id} className="flex py-6">
-                              <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                <Image
-                                  src={product.image}
-                                  alt={product.title}
-                                  layout="fill"
-                                  objectFit="cover"
-                                />
-                              </div>
+                          {cart.length === 0 ? (
+                            <div className="py-4">
+                              <h3 className="text-center text-xl font-bold">
+                                Your Cart is Empty!
+                              </h3>
+                              <AiOutlineShoppingCart
+                                size={140}
+                                style={{
+                                  marginRight: "auto",
+                                  marginLeft: "auto",
+                                  color: "#CCCCCC",
+                                  marginTop: "10px",
+                                }}
+                              />
+                            </div>
+                          ) : (
+                            cart.map((product) => (
+                              <li key={product.id} className="flex py-6">
+                                <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                  <Image
+                                    src={product.image}
+                                    alt={product.title}
+                                    layout="fill"
+                                    objectFit="cover"
+                                  />
+                                </div>
 
-                              <div className="ml-4 flex flex-1 flex-col">
-                                <div>
-                                  <div className="flex justify-between text-base font-medium text-gray-900">
-                                    <h3>
-                                      <a href={product.handle}>
-                                        {product.title}
-                                      </a>
-                                    </h3>
-                                    <p className="ml-4">
-                                      {formatter.format(product.variantPrice)}
+                                <div className="ml-4 flex flex-1 flex-col">
+                                  <div>
+                                    <div className="flex justify-between text-base font-medium text-gray-900">
+                                      <h3>
+                                        <a href={product.handle}>
+                                          {product.title}
+                                        </a>
+                                      </h3>
+                                      <p className="ml-4">
+                                        {formatter.format(product.variantPrice)}
+                                      </p>
+                                    </div>
+                                    <p className="mt-1 text-sm text-gray-500">
+                                      {product.variantTitle}
                                     </p>
                                   </div>
-                                  <p className="mt-1 text-sm text-gray-500">
-                                    {product.variantTitle}
-                                  </p>
-                                </div>
-                                <div className="flex flex-1 items-end justify-between text-sm">
-                                  <p className="text-gray-500">
-                                    Qty {product.variantQuantity}
-                                  </p>
+                                  <div className="flex flex-1 items-end justify-between text-sm">
+                                    <p className="text-gray-500">
+                                      Qty {product.variantQuantity}
+                                    </p>
 
-                                  <div className="flex">
-                                    <button
-                                      type="button"
-                                      onClick={() => removeCartItem(product.id)}
-                                      className="font-medium text-primary"
-                                    >
-                                      Remove
-                                    </button>
+                                    <div className="flex">
+                                      <button
+                                        type="button"
+                                        onClick={() =>
+                                          removeCartItem(product.id)
+                                        }
+                                        className="font-medium text-primary"
+                                      >
+                                        Remove
+                                      </button>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </li>
-                          ))}
+                              </li>
+                            ))
+                          )}
                         </ul>
                       </div>
                     </div>
