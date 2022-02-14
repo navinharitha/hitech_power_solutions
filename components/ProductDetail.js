@@ -14,6 +14,7 @@ export default function ProductDetail({ product }) {
     images.push({
       original: image.node.originalSrc,
       thumbnail: image.node.originalSrc,
+      thumbnailClass:"product-gallery-thumbnail-test",
     });
   });
   const [defaultProductCount, setDefaultProductCount] = useState(0);
@@ -65,17 +66,18 @@ export default function ProductDetail({ product }) {
   return (
     <React.Fragment>
       <div className="appContainer flex flex-col">
-        <div className={styles.productDetail_Wrapper}>
-          <div className={styles.wrapper}>
-            <div className={styles.productImage_Wrapper}>
-              <div className={styles.productImage}>
-                <div className={styles.breadcrumb}>
+        <div className={`px-3 ${styles.productDetail_Wrapper}`}>
+        <div className={styles.breadcrumb}>
                   <Link href="/products">
                     <a className={styles.breadcrumb_Text}>Products</a>
                   </Link>{" "}
                   <span> {" > "} </span>
                   <span>{product.title}</span>
                 </div>
+          <div className={styles.wrapper}>
+            <div className={styles.productImage_Wrapper}>
+              <div className={styles.productImage}>
+                
                 <ImageGallery
                   items={images}
                   autoPlay
@@ -109,7 +111,7 @@ export default function ProductDetail({ product }) {
                 />
               </label>
               <button
-                className={styles.addToCart}
+                className={`font-Hind font-semibold ${styles.addToCart}`}
                 onClick={() => addToCart(selectedVariant)}
                 disabled={!product.availableForSale}
               >
@@ -118,9 +120,9 @@ export default function ProductDetail({ product }) {
             </div>
           </div>
         </div>
-        <div className="mt-40 mb-40">
+        <div className="px-3 mt-5 mb-8 lg:mt-32 lg:mb-40">
           <Tab.Group>
-            <Tab.List className="mb-8">
+            <Tab.List className="mb-8 tabborder">
               <Tab as={React.Fragment}>
                 {({ selected }) => (
                   <button
@@ -130,7 +132,7 @@ export default function ProductDetail({ product }) {
                       ? "bg-white text-black border-b-4 border-solid border-primary"
                       : "bg-white text-black"
                   }
-                  py-4 px-4
+                  py-4 px-4 text-pointeighteen font-bold
                 `}
                   >
                     Description
@@ -146,7 +148,7 @@ export default function ProductDetail({ product }) {
                       ? "bg-white text-black border-b-4 border-solid border-primary"
                       : "bg-white text-black"
                   }
-                  py-4 px-4
+                  py-4 px-4 text-pointeighteen font-bold
                 `}
                   >
                     Reviews
