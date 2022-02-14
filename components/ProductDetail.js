@@ -1,4 +1,6 @@
 import React, { useContext, useState } from "react";
+import { AiOutlineStar } from "react-icons/ai";
+import { Tab } from "@headlessui/react";
 import styles from "../styles/ProductDetail.module.css";
 import Link from "next/link";
 import { formatter } from "../utils/helpers";
@@ -85,10 +87,17 @@ export default function ProductDetail({ product }) {
             </div>
             <div className={styles.content_Wrapper}>
               <h2 className={styles.productTitle}>{product.title}</h2>
-              <p className={styles.productDescription}>{product.description}</p>
+              <p className={styles.productshortDescription}>
+                {product.metafield.value}
+              </p>
               <h3 className={styles.productPrice}>
                 {formatter.format(product.priceRange.minVariantPrice.amount)}
               </h3>
+              {!product.availableForSale && (
+                <p className="inline-block bg-primary text-white mb-3 text-sm py-1 px-2">
+                  Out of Stock
+                </p>
+              )}
               <label className={styles.productQuantityLabel}>
                 Quantity
                 <input
@@ -102,6 +111,7 @@ export default function ProductDetail({ product }) {
               <button
                 className={styles.addToCart}
                 onClick={() => addToCart(selectedVariant)}
+                disabled={!product.availableForSale}
               >
                 Add To Cart
               </button>
@@ -109,7 +119,59 @@ export default function ProductDetail({ product }) {
           </div>
         </div>
         <div className="mt-40 mb-40">
-          <p className={styles.productLongDescription}>{product.description}</p>
+          <Tab.Group>
+            <Tab.List className="mb-8">
+              <Tab as={React.Fragment}>
+                {({ selected }) => (
+                  <button
+                    className={`
+                  ${
+                    selected
+                      ? "bg-white text-black border-b-4 border-solid border-primary"
+                      : "bg-white text-black"
+                  }
+                  py-4 px-4
+                `}
+                  >
+                    Description
+                  </button>
+                )}
+              </Tab>
+              <Tab as={React.Fragment}>
+                {({ selected }) => (
+                  <button
+                    className={`
+                  ${
+                    selected
+                      ? "bg-white text-black border-b-4 border-solid border-primary"
+                      : "bg-white text-black"
+                  }
+                  py-4 px-4
+                `}
+                  >
+                    Reviews
+                  </button>
+                )}
+              </Tab>
+            </Tab.List>
+            <Tab.Panels>
+              <Tab.Panel>
+                <p className={styles.productLongDescription}>
+                  {product.description}
+                </p>
+              </Tab.Panel>
+              <Tab.Panel>
+                <h3 className="text-xl mb-3">Leave a Reviews</h3>
+                <div className="flex justify-start">
+                  <AiOutlineStar size={28} />
+                  <AiOutlineStar size={28} />
+                  <AiOutlineStar size={28} />
+                  <AiOutlineStar size={28} />
+                  <AiOutlineStar size={28} />
+                </div>
+              </Tab.Panel>
+            </Tab.Panels>
+          </Tab.Group>
         </div>
       </div>
     </React.Fragment>
