@@ -2,7 +2,7 @@
   width: 8%;
   text-align: center;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   margin: 2rem auto;
 }
@@ -11,12 +11,13 @@
   padding: 0.5rem 1rem;
   color: #fff;
   display: inline-block;
+  margin-right: 0.5rem;
 }
 .paginationActiveLinkItem {
   background-color: #ed2726;
 }
 
-@media(max-width:768px){
+@media (max-width: 768px) {
   .paginationContainer {
     margin: 4rem auto;
   }
