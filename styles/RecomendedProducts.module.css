@@ -1,11 +1,14 @@
-.productItem_Wrapper {
+.product_Wrapper {
+  width: 100%;
+  height: 100%;
+}
+.productItem_Image_Wrapper {
   width: 100%;
   height: 250px;
 }
-
 .productItem_Image_Wrapper {
   width: 100%;
-  height: 100%;
+  height: 250px;
   border: 2px solid #000;
   border-bottom: none;
   box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.15);
@@ -46,9 +49,10 @@
   color: #fff;
   font-size: 1.05rem;
 }
-.productItem_Wrapper:hover .productItem_Content {
+
+.product_Wrapper:hover .productItem_Content {
   background: #000;
 }
-.productItem_Wrapper:hover .productItem_Button {
+.product_Wrapper:hover .productItem_Button {
   background: #ed2726;
 }

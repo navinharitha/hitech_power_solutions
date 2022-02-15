@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import GoogleMapReact from "google-map-react";
+import Layout from "../components/Layout";
 import PageBanner from "../components/PageBanner";
 import { FaPhoneSquareAlt, FaEnvelope } from "react-icons/fa";
 import styles from "../styles/Contact.module.css";
@@ -52,7 +53,7 @@ function Contact() {
     },
   });
   return (
-    <React.Fragment>
+    <Layout title="Hitech Power Solutions | Contact Us">
       <PageBanner title="Contact Us" />
       <div className="appContainer block md:flex justify-between py-16">
         <div className="w-full md:w-1/2 px-3">
@@ -189,7 +190,7 @@ function Contact() {
           defaultZoom={11}
         ></GoogleMapReact>
       </div>
-    </React.Fragment>
+    </Layout>
   );
 }
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/AboutSection.module.css";
 
-function AboutSection({readmorebutton}) {
+function AboutSection({ readmorebutton }) {
   return (
     <div className="appContainer py-20 block md:flex justify-between">
       <div className={`${styles.AboutSection__ImageWrapper}`}>
@@ -20,7 +20,7 @@ function AboutSection({readmorebutton}) {
           Welcome to Hitech Power Solutions
         </h3>
         <h6 className="text-lg font-bold mb-2">HITECHPOWER SOLUTIONS</h6>
-        <div class="divider mb-7"></div>
+        <div className="divider mb-7"></div>
         <p className="text-lg mb-8 mt-6">
           We are supplying all types of electrical solutions which required to
           caravan industry starting from solar regulator & panels, LED down
@@ -30,10 +30,10 @@ function AboutSection({readmorebutton}) {
         </p>
         {readmorebutton && (
           <Link href="/about">
-          <a className={styles.AboutSection__ContentWrapper__Button}>
-            Learn More About
-          </a>
-        </Link>
+            <a className={styles.AboutSection__ContentWrapper__Button}>
+              Learn More About
+            </a>
+          </Link>
         )}
       </div>
     </div>
