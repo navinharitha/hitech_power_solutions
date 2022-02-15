@@ -29,7 +29,7 @@ export default function ShopProvider({ children }) {
 
       cart.map((item) => {
         if (item.id === newItem.id) {
-          item.variantQuantity++;
+          item.variantQuantity = item.variantQuantity + newItem.variantQuantity;
           newCart = [...cart];
         } else {
           newCart = [...cart, newItem];

@@ -22,15 +22,19 @@ function Header() {
         <div
           className={`${styles.logobox} w-full  text-center md:text-left md:w-2/5`}
         >
-          <Image
-            src="/hitech-power-logo.png"
-            alt="logo"
-            width={280}
-            height={110}
-          />
+          <Link href="/">
+            <a>
+              <Image
+                src="/hitech-power-logo.png"
+                alt="logo"
+                width={280}
+                height={110}
+              />
+            </a>
+          </Link>
         </div>
         <div className="hidden md:flex justify-between w-3/5">
-          <div className="flex items-center">
+          <a className="flex items-center" href="tel: +61 1111 98393">
             <AiFillPhone size={32} color="red" />
             <div className="ml-3">
               <h3 className="text-pointnine lg:text-xl font-DMSans font-medium">
@@ -38,8 +42,11 @@ function Header() {
               </h3>
               <p className="text-pointeight lg:text-lg">+61 1111 98393</p>
             </div>
-          </div>
-          <div className="flex items-center">
+          </a>
+          <a
+            className="flex items-center"
+            href="mailto:info@hitechpowersolutions.com.au"
+          >
             <AiOutlineMail size={32} color="red" />
             <div className="ml-3">
               <h3 className="text-pointnine lg:text-xl font-DMSans font-medium">
@@ -49,7 +56,7 @@ function Header() {
                 info@hitechpowersolutions.com.au
               </p>
             </div>
-          </div>
+          </a>
         </div>
       </div>
       <div className="bg-secondary">

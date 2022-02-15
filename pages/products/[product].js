@@ -1,9 +1,21 @@
 import React from "react";
-import { getAllProducts, getProduct } from "../../lib/shopify";
+import Layout from "../../components/Layout";
+import {
+  getAllProducts,
+  getProduct,
+  getRecommendateProducts,
+} from "../../lib/shopify";
 import ProductDetail from "../../components/ProductDetail";
 
-export default function Product({ product }) {
-  return <ProductDetail product={product} />;
+export default function Product({ product, recomendedProducts }) {
+  return (
+    <Layout title={`Hitech Power Solutions | ${product.title}`}>
+      <ProductDetail
+        product={product}
+        recomendedProducts={recomendedProducts}
+      />
+    </Layout>
+  );
 }
 
 export async function getStaticPaths() {
@@ -24,8 +36,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const product = await getProduct(params.product);
-
+  const recomendedProducts = await getRecommendateProducts(product.id);
   return {
-    props: { product },
+    props: { product, recomendedProducts },
   };
 }

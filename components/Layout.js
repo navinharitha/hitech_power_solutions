@@ -12,11 +12,11 @@ function Layout({ children, title, description }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta charset="UTF-8" />
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
         <link rel="icon" href="/share.jpg" />
         <meta
-          http-equiv="Content-Type"
+          httpEquiv="Content-Type"
           content="text/html; charset=ISO-8859-1"
         ></meta>
         <meta name="robots" content="index, nofollow" />
@@ -30,6 +30,12 @@ function Layout({ children, title, description }) {
         <meta property="og:description" content={description} />
         <meta property="og:locale" content="en_AU" />
         <meta property="og:site_name" content="Originalsole Ecommerce" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Hind:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Header />
       {children}

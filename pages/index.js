@@ -1,14 +1,14 @@
 import React from "react";
 import Sliders from "../components/Sliders";
 import AboutSection from "../components/AboutSection";
-import ProductList from "../components/ProductList";
 import PaginatedItems from "../components/PaginatedItems";
+import Layout from "../components/Layout";
 import { getFeaturedProducts } from "../lib/shopify";
 import styles from "../styles/Home.module.css";
 
 export default function Home({ featuredProducts }) {
   return (
-    <React.Fragment>
+    <Layout title="Hitech Power Solutions | Home">
       <Sliders />
       <AboutSection readmorebutton />
       <div className="productContainer">
@@ -21,7 +21,7 @@ export default function Home({ featuredProducts }) {
       <div className="mb-20">
         <PaginatedItems products={featuredProducts} itemsPerPage={4} />
       </div>
-    </React.Fragment>
+    </Layout>
   );
 }
 

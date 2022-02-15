@@ -6,15 +6,16 @@ import Link from "next/link";
 import { formatter } from "../utils/helpers";
 import ImageGallery from "react-image-gallery";
 import { CartContext } from "../context/shopContext";
+import RecomendedProducts from "../components/RecomendedProducts";
 
-export default function ProductDetail({ product }) {
+export default function ProductDetail({ product, recomendedProducts }) {
   const { addToCart } = useContext(CartContext);
   const images = [];
   product.images.edges.forEach((image) => {
     images.push({
       original: image.node.originalSrc,
       thumbnail: image.node.originalSrc,
-      thumbnailClass:"product-gallery-thumbnail-test",
+      thumbnailClass: "product-gallery-thumbnail-test",
     });
   });
   const [defaultProductCount, setDefaultProductCount] = useState(0);
@@ -67,17 +68,16 @@ export default function ProductDetail({ product }) {
     <React.Fragment>
       <div className="appContainer flex flex-col">
         <div className={`px-3 ${styles.productDetail_Wrapper}`}>
-        <div className={styles.breadcrumb}>
-                  <Link href="/products">
-                    <a className={styles.breadcrumb_Text}>Products</a>
-                  </Link>{" "}
-                  <span> {" > "} </span>
-                  <span>{product.title}</span>
-                </div>
+          <div className={styles.breadcrumb}>
+            <Link href="/products">
+              <a className={styles.breadcrumb_Text}>Products</a>
+            </Link>{" "}
+            <span> {" > "} </span>
+            <span>{product.title}</span>
+          </div>
           <div className={styles.wrapper}>
             <div className={styles.productImage_Wrapper}>
               <div className={styles.productImage}>
-                
                 <ImageGallery
                   items={images}
                   autoPlay
@@ -120,7 +120,7 @@ export default function ProductDetail({ product }) {
             </div>
           </div>
         </div>
-        <div className="px-3 mt-5 mb-8 lg:mt-32 lg:mb-40">
+        <div className="px-3 mt-5 mb-20 lg:mt-32 lg:mb-30">
           <Tab.Group>
             <Tab.List className="mb-8 tabborder">
               <Tab as={React.Fragment}>
@@ -174,6 +174,9 @@ export default function ProductDetail({ product }) {
               </Tab.Panel>
             </Tab.Panels>
           </Tab.Group>
+        </div>
+        <div className="mb-20">
+          <RecomendedProducts products={recomendedProducts} />
         </div>
       </div>
     </React.Fragment>

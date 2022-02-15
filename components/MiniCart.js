@@ -4,6 +4,7 @@ import { XIcon } from "@heroicons/react/outline";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CartContext } from "../context/shopContext";
 import Image from "next/image";
+import Link from "next/link";
 import { formatter } from "../utils/helpers";
 import styles from "../styles/Checkout.module.css";
 
@@ -51,7 +52,9 @@ export default function MiniCart() {
                 <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                   <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                     <div className="flex items-start justify-between">
-                      <Dialog.Title className="text-lg font-medium text-gray-900"></Dialog.Title>
+                      <Dialog.Title className="text-lg font-medium text-gray-900">
+                        Shopping Cart
+                      </Dialog.Title>
                       <div className="ml-3 flex h-7 items-center">
                         <button
                           type="button"
@@ -102,9 +105,11 @@ export default function MiniCart() {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={product.handle}>
-                                          {product.title}
-                                        </a>
+                                        <Link
+                                          href={`/products/${product.handle}`}
+                                        >
+                                          <a>{product.title}</a>
+                                        </Link>
                                       </h3>
                                       <p className="ml-4">
                                         {formatter.format(product.variantPrice)}

@@ -1,6 +1,7 @@
 import React from "react";
 import PageBanner from "../components/PageBanner";
 import AboutSection from "../components/AboutSection";
+import Layout from "../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/About.module.css";
@@ -13,7 +14,7 @@ import {
 
 function About() {
   return (
-    <React.Fragment>
+    <Layout title="Hitech Power Solutions | About Us">
       <PageBanner title="About Us" />
       <AboutSection />
       <div className={`py-16 ${styles.backgroundwrapper}`}>
@@ -133,7 +134,7 @@ function About() {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </Layout>
   );
 }
 
