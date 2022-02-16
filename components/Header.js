@@ -63,21 +63,29 @@ function Header() {
         <nav className="appContainer relative flex flex-wrap items-center text-white justify-between mb-3">
           <div className="w-full mx-auto flex flex-row-reverse flex-wrap items-center justify-between">
             <div className="w-full relative flex flex-row-reverse lg:w-auto lg:static lg:flex lg:justify-start py-4">
-              <a href="https://www.instagram.com/" target="_blank">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <AiFillInstagram
                   size={26}
                   color="white"
                   style={{ marginRight: "10px" }}
                 />
               </a>
-              <a href="https://www.youtube.com/" target="_blank">
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <AiFillYoutube
                   size={26}
                   color="white"
                   style={{ marginRight: "10px" }}
                 />
               </a>
-              <a href="https://twitter.com/" target="_blank">
+              <a href="https://twitter.com/" target="_blank" rel="noreferrer">
                 <AiFillTwitterCircle
                   size={26}
                   color="white"
@@ -87,6 +95,7 @@ function Header() {
               <a
                 href="https://www.facebook.com/Hi-Tech-Power-Solutions-393912278042207/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <AiFillFacebook
                   size={26}
