@@ -7,7 +7,7 @@
   border-radius: 7px;
   padding: 1rem 8rem;
   transition: background 180ms ease 0s;
-  background-color: #fc008f;
+  background-color: var(--color-primary);
   font-size: 1.3rem;
   font-weight: 500;
   height: auto;
@@ -15,12 +15,12 @@
   display: inline-block;
   border: none;
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: var(--color-white);
   cursor: pointer;
 }
 .variantType {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--color-black);
+  color: var(--color-white);
   padding: 1rem;
   margin: 1rem 0rem;
   font-size: 1rem;
@@ -39,7 +39,7 @@
   font-size: 1.3rem;
   margin-left: 0.8rem;
   text-align: center;
-  border: 1px solid #000;
+  border: 1px solid var(--color-black);
 }
 .typeName {
   margin-top: 0.8rem;

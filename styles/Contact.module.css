@@ -2,13 +2,13 @@
   padding: 5%;
   border-style: solid;
   border-width: 15px 15px 15px 15px;
-  border-color: #ed2726;
+  border-color: var(--color-primary);
 }
 .contactformwrapper input {
   border: none;
   width: 100%;
   max-width: 100%;
-  border-bottom: 1px solid #818a91;
+  border-bottom: 1px solid var(--color-border);
   margin-bottom: 25px;
   padding: 0.5rem 1rem;
 }
@@ -21,7 +21,7 @@
 .contactformwrapper textarea {
   width: 100%;
   max-width: 100%;
-  border: 1px solid #818a91;
+  border: 1px solid var(--color-border);
   min-height: 40px;
   padding: 5px 14px;
   margin-bottom: 25px;
@@ -29,17 +29,17 @@
 }
 .contactformwrapper button {
   min-height: 40px;
-  background: #ed2726;
+  background: var(--color-primary);
   padding: 12px 24px;
 }
 .contactformwrapper button:hover {
-  background: #221f1e;
+  background: var(--color-black);
 }
 .contactformwrapper form {
   padding: 1rem 1rem 1rem;
 }
 .errorMessage {
-  color: red;
+  color: var(--color-primary);
   font-size: 0.9rem;
   margin-top: -18px;
   margin-bottom: 10px;
