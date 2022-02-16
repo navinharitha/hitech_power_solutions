@@ -22,16 +22,15 @@ function Layout({ children, title, description }) {
         <meta name="robots" content="index, nofollow" />
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://originalsole.com.au" />
+        <meta property="og:url" content="https://hitechpowersolutions.com.au" />
         <meta
           property="og:image"
-          content="https://originalsole.com.au/share.jpg"
+          content="https://hitechpowersolutions.com.au/share.jpg"
         />
         <meta property="og:description" content={description} />
         <meta property="og:locale" content="en_AU" />
-        <meta property="og:site_name" content="Originalsole Ecommerce" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <meta property="og:site_name" content="Hitech Power Solutions" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <link
           href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Hind:wght@400;500;700&display=swap"
           rel="stylesheet"

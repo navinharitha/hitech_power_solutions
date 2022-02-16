@@ -31,25 +31,25 @@ function Contact() {
           "Phone number is not valid"
         ),
     }),
-    onSubmit: async (values, { resetForm }) => {
+    onSubmit: (values, { resetForm }) => {
       setLoading(true);
-      try {
-        const response = await fetch("http://localhost:3000/api/contact", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        });
-        if (response.status == 200) {
+      fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      }).then((res) => {
+        if (res.status === 200) {
           setLoading(false);
           setEmailSuccess(true);
+          resetForm();
         }
-      } catch (err) {
+      }).catch(err => {
         setLoading(false);
         setEmailSuccess(false);
-      }
+      })
     },
   });
   return (
