@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import Link from "next/link";
 import {
   AiFillFacebook,
@@ -15,7 +15,6 @@ import { FaBars } from "react-icons/fa";
 
 function Header() {
   const router = useRouter();
-  console.log(router);
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <header>
@@ -124,28 +123,44 @@ function Header() {
               <ul className="flex grow flex-col lg:flex-row list-none">
                 <li className="nav-item">
                   <Link href="/">
-                    <a className={`${router.pathname == '/' && styles.active} w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}>
+                    <a
+                      className={`${
+                        router.pathname == "/" && styles.active
+                      } w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}
+                    >
                       Home
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href="/products">
-                    <a className={`${router.pathname == '/products' && styles.active} w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}>
+                    <a
+                      className={`${
+                        router.pathname == "/products" && styles.active
+                      } w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}
+                    >
                       Products
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href="/about">
-                    <a className={`${router.pathname == '/about' && styles.active} w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}>
+                    <a
+                      className={`${
+                        router.pathname == "/about" && styles.active
+                      } w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}
+                    >
                       About Us
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact">
-                    <a className={`${router.pathname == '/contact' && styles.active} w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}>
+                    <a
+                      className={`${
+                        router.pathname == "/contact" && styles.active
+                      } w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}
+                    >
                       Contact
                     </a>
                   </Link>
