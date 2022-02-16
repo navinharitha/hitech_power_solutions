@@ -8,7 +8,7 @@ function RecomendedProducts({ products }) {
   return (
     <div>
       <h3 className="mb-8 text-3xl font-bold">Related Products</h3>
-      <div className="grid grid-cols-4 gap-6">
+      <div className={`grid grid-cols-4 gap-6  ${styles.relatedproductwrap}`}>
         {products.length > 0 &&
           products.map((product) => (
             <div key={product.id} className={styles.product_Wrapper}>

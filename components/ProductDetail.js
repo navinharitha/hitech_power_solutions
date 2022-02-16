@@ -175,7 +175,7 @@ export default function ProductDetail({ product, recomendedProducts }) {
             </Tab.Panels>
           </Tab.Group>
         </div>
-        <div className="mb-20">
+        <div className="mb-20 px-3">
           <RecomendedProducts products={recomendedProducts} />
         </div>
       </div>
