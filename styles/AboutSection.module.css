@@ -13,23 +13,23 @@
   padding-top: 3rem;
 }
 .AboutSection__ContentWrapper__Button {
-  background-color: #221f1e;
-  color: #fff;
+  background-color: var(--color-black);
+  color: var(--color-white);
   display: inline-block;
   font-size: 1.1rem;
   padding: 0.75rem 2rem;
 }
 
-@media(max-width:768px){
+@media (max-width: 768px) {
   .AboutSection__ContentWrapper {
     width: 100%;
-    margin-left:0;
-    padding-left:10px;
-    padding-right:10px;
+    margin-left: 0;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .AboutSection__ImageWrapper {
-    margin-left:10px;
-    margin-right:10px;
-    width:auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto;
   }
 }
