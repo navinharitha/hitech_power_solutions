@@ -8,3 +8,85 @@
 .active {
   background: var(--color-primary);
 }
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.searchInput {
+  padding: 0.75rem 1rem;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 100%;
+  color: var(--color-black);
+}
+.searchInput:focus {
+  border: none;
+  outline: none;
+}
+.searchInputButton {
+  background: var(--color-primary);
+  padding: 0.5rem;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.loginWrapper {
+  padding-left: 3rem;
+}
+.cartItemQuantity {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: var(--color-primary);
+  padding: 0.25rem 0.35rem;
+  border-radius: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+.searchInputDropdown {
+  background-color: var(--color-white);
+  position: absolute;
+  top: 92%;
+  left: 0;
+  width: 93.75%;
+  min-height: 100px;
+  z-index: 10;
+  color: var(--color-black);
+  box-shadow: 1px 3px 20px rgba(0, 0, 0, 0.075);
+}
+.searchInputDropdownTitle {
+  background-color: var(--color-grey);
+  padding: 0.5rem 1rem;
+  color: var(--color-black);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-border);
+}
+.emptyProductMessage {
+  text-align: center;
+  line-height: 100px;
+  font-size: 1.1rem;
+  color: var(--color-black);
+  font-weight: bold;
+}
+.searchInputDropdownProductList {
+  display: flex;
+  padding: 0.4rem 1.75rem;
+  align-items: center;
+  cursor: pointer;
+}
+.searchInputDropdownProductList:hover {
+  background-color: var(--color-grey);
+}
+.searchInputDropdownProductListDetail {
+  margin-left: 1.2rem;
+}
+.searchInputDropdownProductListDetailTitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.searchInputDropdownProductListDetailPrice {
+  color: var(--color-primary);
+}

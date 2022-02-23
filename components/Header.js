@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import {
@@ -8,34 +8,142 @@ import {
   AiFillTwitterCircle,
   AiFillPhone,
   AiOutlineMail,
+  AiOutlineShoppingCart,
 } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
+import { IoIosArrowDown } from "react-icons/io";
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
+import { getAllProducts } from "../lib/shopify";
+import { CartContext } from "../context/shopContext";
 import { FaBars } from "react-icons/fa";
 
 function Header() {
   const router = useRouter();
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const [productData, setProductData] = React.useState([]);
+  const [filteredData, setFilteredData] = React.useState(productData);
+  const searchTermInput = useRef();
+  const [showSearchInputDropdown, setShowSearchInputDropdown] =
+    React.useState(false);
+  const { cart, cartOpen, setCartOpen } = useContext(CartContext);
+  let cartQuantity = 0;
+  cart.map((item) => {
+    return (cartQuantity += item?.variantQuantity);
+  });
+  function handleSearchInputChange(event) {
+    if (event.target.value === "") {
+      setShowSearchInputDropdown(false);
+    } else {
+      setShowSearchInputDropdown(true);
+      const keyword = searchTermInput.current.value.toLowerCase();
+      const filtered = productData.filter((data) =>
+        data.node.title.toLowerCase().match(new RegExp(keyword, "g"))
+      );
+      setFilteredData(filtered);
+    }
+  }
+  useEffect(() => {
+    async function getProductsData() {
+      const products = await getAllProducts();
+      setProductData(products);
+    }
+    getProductsData();
+  }, []);
   return (
-    <header>
-      <div
-        className={`appContainer bg-white py-5 px-10  block md:flex justify-between`}
-      >
+    <header className="bg-secondary text-white">
+      <div className={`appContainer py-3 px-10  block md:flex justify-between`}>
         <div
-          className={`${styles.logobox} w-full  text-center md:text-left md:w-2/5`}
+          className={`${styles.logobox} w-full  text-center md:text-left md:w-1/5`}
         >
           <Link href="/">
             <a>
-              <Image
-                src="/hitech-power-logo.png"
-                alt="logo"
-                width={280}
-                height={110}
-              />
+              <Image src="/logo.png" alt="logo" width={160} height={60} />
             </a>
           </Link>
         </div>
-        <div className="hidden md:flex justify-between w-3/5">
+        <div className="hidden md:flex justify-between w-3/5 items-center">
+          <div className={styles.search}>
+            <input
+              type="text"
+              placeholder="Search..."
+              onChange={handleSearchInputChange}
+              ref={searchTermInput}
+              //onBlur={() => setShowSearchInputDropdown(false)}
+              className={styles.searchInput}
+            />
+            <button className={styles.searchInputButton}>
+              <BiSearch size={32} />
+            </button>
+            {showSearchInputDropdown && (
+              <div className={styles.searchInputDropdown}>
+                {filteredData.length === 0 ? (
+                  <h3 className={styles.emptyProductMessage}>
+                    No Products Matched...
+                  </h3>
+                ) : (
+                  <React.Fragment>
+                    <h3 className={styles.searchInputDropdownTitle}>
+                      Products
+                    </h3>
+                    {filteredData.map((product) => (
+                      <Link href={`/products/${product.node.handle}`}>
+                        <div
+                          key={product.node.id}
+                          className={styles.searchInputDropdownProductList}
+                        >
+                          <Image
+                            src={product.node.images.edges[0].node.originalSrc}
+                            alt={product.node.images.edges[0].node.altText}
+                            width={80}
+                            height={70}
+                          />
+                          <div
+                            className={
+                              styles.searchInputDropdownProductListDetail
+                            }
+                          >
+                            <h3
+                              className={
+                                styles.searchInputDropdownProductListDetailTitle
+                              }
+                            >
+                              {product.node.title}
+                            </h3>
+                            <p
+                              className={
+                                styles.searchInputDropdownProductListDetailPrice
+                              }
+                            >
+                              ${product.node.priceRange.minVariantPrice.amount}
+                            </p>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </React.Fragment>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="flex w-1/5 justify-between items-center px-2">
+          <div className={styles.loginWrapper}>
+            <h5>Login / Signup</h5>
+            <div className="flex justify-start items-center">
+              <h6 className="font-bold">My account</h6>
+              <IoIosArrowDown />
+            </div>
+          </div>
+          <div
+            className="cartWrapper relative cursor-pointer"
+            onClick={() => setCartOpen(!cartOpen)}
+          >
+            <AiOutlineShoppingCart size={38} />
+            <span className={styles.cartItemQuantity}>{cartQuantity}</span>
+          </div>
+        </div>
+        {/* <div className="hidden md:flex justify-between w-3/5">
           <a className="flex items-center" href="tel: +61 1111 98393">
             <AiFillPhone size={32} color="red" />
             <div className="ml-3">
@@ -59,116 +167,7 @@ function Header() {
               </p>
             </div>
           </a>
-        </div>
-      </div>
-      <div className="bg-secondary">
-        <nav className="appContainer relative flex flex-wrap items-center text-white justify-between mb-3">
-          <div className="w-full mx-auto flex flex-row-reverse flex-wrap items-center justify-between">
-            <div className="w-full relative flex flex-row-reverse lg:w-auto lg:static lg:flex lg:justify-start py-4">
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <AiFillInstagram
-                  size={26}
-                  color="white"
-                  style={{ marginRight: "10px" }}
-                />
-              </a>
-              <a
-                href="https://www.youtube.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <AiFillYoutube
-                  size={26}
-                  color="white"
-                  style={{ marginRight: "10px" }}
-                />
-              </a>
-              <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-                <AiFillTwitterCircle
-                  size={26}
-                  color="white"
-                  style={{ marginRight: "10px" }}
-                />
-              </a>
-              <a
-                href="https://www.facebook.com/Hi-Tech-Power-Solutions-393912278042207/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <AiFillFacebook
-                  size={26}
-                  color="white"
-                  style={{ marginRight: "10px" }}
-                />
-              </a>
-              <button
-                className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none mr-auto"
-                type="button"
-                onClick={() => setNavbarOpen(!navbarOpen)}
-              >
-                <FaBars />
-              </button>
-            </div>
-            <div
-              className={
-                "lg:flex flex-grow items-center" +
-                (navbarOpen ? " flex" : " hidden")
-              }
-              id="example-navbar-danger"
-            >
-              <ul className="flex grow flex-col lg:flex-row list-none">
-                <li className="nav-item">
-                  <Link href="/">
-                    <a
-                      className={`${
-                        router.pathname == "/" && styles.active
-                      } w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}
-                    >
-                      Home
-                    </a>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link href="/products">
-                    <a
-                      className={`${
-                        router.pathname == "/products" && styles.active
-                      } w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}
-                    >
-                      Products
-                    </a>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link href="/about">
-                    <a
-                      className={`${
-                        router.pathname == "/about" && styles.active
-                      } w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}
-                    >
-                      About Us
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact">
-                    <a
-                      className={`${
-                        router.pathname == "/contact" && styles.active
-                      } w-full lg:w-auto inline-block py-5 px-5 text-base font-bold uppercase hover:bg-primary font-Hind`}
-                    >
-                      Contact
-                    </a>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+        </div> */}
       </div>
     </header>
   );

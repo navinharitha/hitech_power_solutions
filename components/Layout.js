@@ -38,7 +38,6 @@ function Layout({ children, title, description }) {
       </Head>
       <Header />
       {children}
-      <CartItem />
       <MiniCart />
       <Footer />
     </React.Fragment>
