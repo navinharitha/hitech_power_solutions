@@ -75,7 +75,7 @@ export default function MiniCart() {
                           className="-my-6 divide-y divide-gray-200"
                         >
                           {cart.length === 0 ? (
-                            <div className="py-4">
+                            <div className="py-4 text-center">
                               <AiOutlineShoppingCart
                                 size={90}
                                 style={{
@@ -85,9 +85,17 @@ export default function MiniCart() {
                                   marginTop: "10px",
                                 }}
                               />
-                              <h3 className="text-center text-2xl font-800 mt-2">
+                              <h3 className="text-center text-xl font-800 mt-2">
                                 Your Cart is Empty!
                               </h3>
+                              <Link
+                                href="/products"
+                                onClick={() => setCartOpen(!cartOpen)}
+                              >
+                                <a className="py-2 px-10 bg-primary text-white font-bold inline-block mt-5">
+                                  Shop Our Products
+                                </a>
+                              </Link>
                             </div>
                           ) : (
                             cart.map((product) => (

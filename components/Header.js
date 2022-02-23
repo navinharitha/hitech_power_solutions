@@ -69,10 +69,12 @@ function Header() {
               placeholder="Search..."
               onChange={handleSearchInputChange}
               ref={searchTermInput}
-              //onBlur={() => setShowSearchInputDropdown(false)}
               className={styles.searchInput}
             />
-            <button className={styles.searchInputButton}>
+            <button
+              className={styles.searchInputButton}
+              onClick={handleSearchInputChange}
+            >
               <BiSearch size={32} />
             </button>
             {showSearchInputDropdown && (

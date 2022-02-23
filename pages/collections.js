@@ -1,14 +1,30 @@
 import React from "react";
+import Link from "next/link";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { useRouter } from "next/router";
 import { FaList } from "react-icons/fa";
 import Layout from "../components/Layout";
 import PaginatedListItems from "../components/PaginatedListItems";
 import PaginatedItems from "../components/PaginatedItems";
-import { getFeaturedProducts, getCollections } from "../lib/shopify";
+import {
+  getAllProducts,
+  getCollections,
+  getProductsByCollection,
+} from "../lib/shopify";
 import styles from "../styles/Collections.module.css";
 
 function Collections({ collections, products }) {
   const [gridView, setGridView] = React.useState(true);
+  const [productData, setProductData] = React.useState(products || []);
+  const router = useRouter();
+  React.useEffect(() => {
+    async function getProductsFromCollection() {
+      if (router.query.collection) {
+        const products = await getProductsByCollection(router.query.collection);
+      }
+    }
+    getProductsFromCollection();
+  }, []);
   return (
     <Layout title="Hitech Power Solutions | Collections">
       <div className="appContainer py-20 flex justify-between items-start">
@@ -18,18 +34,18 @@ function Collections({ collections, products }) {
             <div>
               {collections.map((collection) => (
                 <div className="form-check mb-2">
-                  <input
-                    className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-primary checked:border-primary-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label inline-block text-gray-800"
-                    for="flexCheckDefault"
+                  <Link
+                    href={`/collections?collection=${collection.node.handle}`}
                   >
-                    {collection.node.title}
-                  </label>
+                    <a
+                      className={`${
+                        router.query.collection === collection.node.handle &&
+                        styles.collectionFilterActive
+                      }`}
+                    >
+                      {collection.node.title}
+                    </a>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -67,9 +83,9 @@ function Collections({ collections, products }) {
           <div className="mt-10">
             <div className="mb-10">
               {gridView ? (
-                <PaginatedItems products={products} itemsPerPage={16} />
+                <PaginatedItems products={productData} itemsPerPage={16} />
               ) : (
-                <PaginatedListItems products={products} itemsPerPage={16} />
+                <PaginatedListItems products={productData} itemsPerPage={16} />
               )}
             </div>
           </div>
@@ -79,8 +95,10 @@ function Collections({ collections, products }) {
   );
 }
 
+export default Collections;
+
 export async function getStaticProps() {
-  const products = await getFeaturedProducts();
+  const products = await getAllProducts();
   const collections = await getCollections();
   return {
     props: {
@@ -89,5 +107,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-export default Collections;

@@ -18,3 +18,7 @@
   display: flex;
   justify-content: space-between;
 }
+.collectionFilterActive {
+  font-weight: bold;
+  color: var(--color-primary);
+}

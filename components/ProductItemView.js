@@ -28,8 +28,11 @@ function ProductItem({ product }) {
         <h2 className={styles.productItem_Price}>
           {formatter.format(product.node.priceRange.minVariantPrice.amount)}
         </h2>
+        <p className={styles.productItem_Description}>
+          {product.node.metafield.value}
+        </p>
       </div>
-      <div>
+      <div className={styles.productItem_ButtonWrapper}>
         <Link href={`/products/${product.node.handle}`}>
           <a className={`font-Hind font-bold ${styles.productItem_Button}`}>
             View Product
